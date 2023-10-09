@@ -21,13 +21,17 @@ function App() {
                 element={<Main action={setData}/>}
             />
             <Route
-                path={'/stat'}
+                path={'/stat/:viewType'}
                 element={<Stat statData={data}/>}
             />
             <Route
-                path={'/plan/:demoParam'}
+                path={'/plan'}
                 element={<Plan/>}
                 />
+            <Route
+                path={'*'}
+                element={<Main/>}
+            />
         </Routes>
           {/*showPage === "main"
                 ? <Main action={setData}></Main>

@@ -1,14 +1,15 @@
-import React, {useState} from "react";
+import React from "react";
 import css from "../../../styles/dataList.css";
+import {useNavigate} from "react-router-dom";
 
 const {DataContainer, ContentCell, ContentLine, TypesLine, TypeItem} = css
 
 const DataList = (props) => {
-    const {data = [], setShow} = props
-    const [dataType, setDataType] = useState('')
-    const filteredData = data.filter(item => item.split("::")[0].toLowerCase() === dataType.toLowerCase())
+    const {data = [], setShow, viewType} = props
+    const navigate = useNavigate()
+    const filteredData = data.filter(item => item.split("::")[0].toLowerCase() === viewType.toLowerCase())
 
-    const dataSum = data.filter(item => item.split("::")[0].toLowerCase() === dataType.toLowerCase())
+    const dataSum = data.filter(item => item.split("::")[0].toLowerCase() === viewType.toLowerCase())
         .reduce((sum, item) => {
             sum += +item.split("::")[1].split(' ')[0]
             return sum
@@ -26,9 +27,18 @@ const DataList = (props) => {
     return (
         <React.Fragment>
             <TypesLine>
-                <TypeItem style={{color: dataType === "income" ? "black" : ''}} onClick={() => {setDataType("income"); setShow(false)}}>Income</TypeItem>
-                <TypeItem style={{color: dataType === "expenses" ? "black" : ''}} onClick={() => {setDataType("expenses"); setShow(true)}}>Expenses</TypeItem>
-                <TypeItem style={{color: dataType === "" ? "black" : ''}} onClick={() => {setDataType(""); setShow(false)}}>Common</TypeItem>
+                <TypeItem style={{color: viewType === "income" ? "black" : ''}}
+                          onClick={() => {navigate("/stat/income"); setShow(false)}}>
+                    Income
+                </TypeItem>
+                <TypeItem style={{color: viewType === "expenses" ? "black" : ''}}
+                          onClick={() => {navigate("/stat/expenses"); setShow(true)}}>
+                    Expenses
+                </TypeItem>
+                <TypeItem style={{color: viewType === "common" ? "black" : ''}}
+                          onClick={() => {navigate("/stat/common"); setShow(false)}}>
+                    Common
+                </TypeItem>
             </TypesLine>
             <DataContainer>
                 <ContentLine key={"head"}>

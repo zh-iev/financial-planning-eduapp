@@ -1,6 +1,6 @@
 import React from "react";
 import css from "../../../styles/styles.css";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const {HeaderContainer, HeaderCSS} = css
 
@@ -30,12 +30,12 @@ const Header = (props) => {
                         Main
                     </button>
                     <button /*onClick={() => action('stat')}*/
-                        onClick={() => navigate("/stat")}
+                        onClick={() => navigate("/stat/expenses")}
                         style={buttonCSS}>
                         Statistic
                     </button>
                     <button /*onClick={() => action('plan')}*/
-                        onClick={() => navigate("/plan/hello")}
+                        onClick={() => navigate("/plan")}
                         style={buttonCSS}>
                         Planning
                     </button>
