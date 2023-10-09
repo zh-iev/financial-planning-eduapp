@@ -1,18 +1,21 @@
 import React, {useEffect} from "react";
-import {useParams} from "react-router-dom";
+import {useParams, useSearchParams} from "react-router-dom";
 
 const Plan = () => {
 
     const { demoParam } = useParams()
+    const [ params, setParams ] = useSearchParams() //как useState + url
 
     useEffect(() => {
         console.log(demoParam)
-    }, [ demoParam ]) //при изменении него вызывать useEffect
+        setParams({ userName: 'Zhenya', userAge: '29' })
+    }, [ demoParam, setParams ]) //при изменении него вызывать useEffect
 
     return (
         <React.Fragment>
             <h3 style={{display: "block", margin: "30px", fontFamily: "sans-serif"}}>
-                Страница планирования</h3>
+                Username: { params.get('userName')}
+            </h3>
         </React.Fragment>
     )
 }
