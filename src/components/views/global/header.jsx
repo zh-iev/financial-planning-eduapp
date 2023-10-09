@@ -27,17 +27,17 @@ const Header = (props) => {
                     <button /*onClick={() => action('main')}*/
                         onClick={() => navigate("/main")}
                         style={buttonCSS}>
-                        <Link to={'/main'} style={{textDecoration: "none", color: "inherit"}}>Main</Link>
+                        Main
                     </button>
                     <button /*onClick={() => action('stat')}*/
                         onClick={() => navigate("/stat")}
                         style={buttonCSS}>
-                        <Link to={'/stat'} style={{textDecoration: "none", color: "inherit"}}>Statistic</Link>
+                        Statistic
                     </button>
                     <button /*onClick={() => action('plan')}*/
-                        onClick={() => navigate("/plan")}
+                        onClick={() => navigate("/plan/hello")}
                         style={buttonCSS}>
-                        <Link to={'/plan'} style={{textDecoration: "none", color: "inherit"}}>Planning</Link>
+                        Planning
                     </button>
                 </HeaderCSS.MenuContainer>
             </HeaderContainer>

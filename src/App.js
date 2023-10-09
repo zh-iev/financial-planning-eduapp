@@ -25,7 +25,7 @@ function App() {
                 element={<Stat statData={data}/>}
             />
             <Route
-                path={'/plan'}
+                path={'/plan/:demoParam'}
                 element={<Plan/>}
                 />
         </Routes>

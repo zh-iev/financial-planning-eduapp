@@ -1,38 +1,18 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
+import {useParams} from "react-router-dom";
 
 const Plan = () => {
 
-    const [data, setData] = useState({name: "Zhenya", age: 20, hobby: "design", prof: "it"})
-    const [count, setCount] = useState(0)
-
-    const changeCount = () => {
-        setData({
-            ...data,
-            age: 21,
-            hobby: "hotrdm;lsa"
-        })
-        // setCount(count + 1)
-        // setCount(count + 1)
-        // setCount(count + 1)
-        // Всё равно увеличится на 1
-        // А вот тут на 3:
-        setCount(last => last + 1)
-        setCount(last => last + 1)
-        setCount(last => last + 1)
-    }
+    const { demoParam } = useParams()
 
     useEffect(() => {
-        console.log(data.age)
-    }, [data]) //при изменении него вызывать useEffect
+        console.log(demoParam)
+    }, [ demoParam ]) //при изменении него вызывать useEffect
 
     return (
         <React.Fragment>
-            <span style={{display: "block"}}>{data.name}</span>
-            <span style={{display: "block"}}>{data.age}</span>
-            <span style={{display: "block"}}>{data.prof}</span>
-            <span style={{display: "block"}}>{data.hobby}</span>
-            <span style={{display: "block"}}>{count}</span>
-            <button onClick={changeCount}>Change</button>
+            <h3 style={{display: "block", margin: "30px", fontFamily: "sans-serif"}}>
+                Страница планирования</h3>
         </React.Fragment>
     )
 }
