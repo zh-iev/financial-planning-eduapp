@@ -3,6 +3,7 @@ import Main from "./components/pages/main";
 import Stat from "./components/pages/stat";
 import Header from "./components/views/global/header";
 import Footer from "./components/views/global/footer";
+import Plan from "./components/pages/plan";
 
 function App() {
 
@@ -14,7 +15,9 @@ function App() {
         <Header action={setShowPage}></Header>
           {showPage === "main"
                 ? <Main action={setData}></Main>
-                : <Stat statData={data}></Stat>}
+                : showPage === "stat"
+                ? <Stat statData={data}></Stat>
+                : <Plan></Plan> }
         <Footer></Footer>
     </React.Fragment>
     );
