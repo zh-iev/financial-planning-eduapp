@@ -1,6 +1,6 @@
 import React from "react";
 import css from "../../../styles/styles.css";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 const {HeaderContainer, HeaderCSS} = css
 
@@ -17,18 +17,26 @@ const Header = (props) => {
 
     //const { action } = props
 
+    const navigate = useNavigate()
+
     return (
         <React.Fragment>
             <HeaderContainer>
                 <HeaderCSS.Logo>FINANCE PLAN</HeaderCSS.Logo>
                 <HeaderCSS.MenuContainer>
-                    <button /*onClick={() => action('main')}*/ style={buttonCSS}>
+                    <button /*onClick={() => action('main')}*/
+                        onClick={() => navigate("/main")}
+                        style={buttonCSS}>
                         <Link to={'/main'} style={{textDecoration: "none", color: "inherit"}}>Main</Link>
                     </button>
-                    <button /*onClick={() => action('stat')}*/ style={buttonCSS}>
+                    <button /*onClick={() => action('stat')}*/
+                        onClick={() => navigate("/stat")}
+                        style={buttonCSS}>
                         <Link to={'/stat'} style={{textDecoration: "none", color: "inherit"}}>Statistic</Link>
                     </button>
-                    <button /*onClick={() => action('plan')}*/ style={buttonCSS}>
+                    <button /*onClick={() => action('plan')}*/
+                        onClick={() => navigate("/plan")}
+                        style={buttonCSS}>
                         <Link to={'/plan'} style={{textDecoration: "none", color: "inherit"}}>Planning</Link>
                     </button>
                 </HeaderCSS.MenuContainer>
